@@ -93,7 +93,7 @@ const hasAuthorization = (req, res, next) => {
 // Check if user has one of given roles
 const hasRole = (...roles) => (req, res, next) => {
   if (!req.userRole || !roles.includes(req.userRole)) {
-    return res.status(403).json({ error: 'Insufficient role' })
+    return res.status(403).json({ error: 'This action requires admin permissions.' })
   }
   next()
 }
